@@ -1,0 +1,54 @@
+﻿@using QuanLyBanHang.Entity;
+@using QuanLyBanHang.Models.Order;
+@model OrderEditViewModel;
+@using (Html.BeginForm("UpdateStatus", "Order", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.orderID)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.orderDateTime)
+    @Html.HiddenFor(model => model.orderTotal)
+
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">Order List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Update Status Of Order</li>
+                </ol>
+            </nav>
+        </div>
+            <div class="row mb-3">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <b>
+                        <p class="text-danger">ID: @Model.orderID</p>
+                        <p class="text-danger">
+                            Username: @Model.UserName
+                        </p>
+                        <p>Price: @Model.orderTotal</p>
+                        <p>Date Created: @Model.orderDateTime</p>
+                    </b>
+                </div>
+            </div>
+            <hr style="background-color:black" />
+            <div class="row mb-3">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">Update status: <select asp-for="orderStatus" class="form-control" asp-items="Html.GetEnumSelectList<OrderStatus>()"></select></div>
+                <div class="col-md-2"></div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-around mt-4 mb-0" style="padding-bottom:30px">
+                <button type="submit" class="btn btn-rounded btn-primary float-left"><i class="fas fa-plus-square" style="margin-right:0.7em"></i>Save</button>
+                <a asp-action="Index" class="btn btn-rounded btn-success float-right"><i class="fas fa-caret-square-left" style="margin-right:0.7em"></i>Back</a>
+            </div>
+
+    </div>
+}
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

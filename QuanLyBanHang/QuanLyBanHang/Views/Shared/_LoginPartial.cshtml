@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole("Admin"))
+    {
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="post" asp-controller="User" asp-action="Logout">
+            <a class="text-info" style="text-decoration:none"><i class="fa-solid fa-user"></i> <b>@User.Identity?.Name (Admin)</b></a>
+            <button class="bg-dark text-white" type="submit" style="border:none;margin-left:40px;margin-right:20px;text-decoration:none"><i class="fa-solid fa-right-from-bracket"></i> <b>Logout</b></button>
+        </form>
+    }
+    else
+    {
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="post" asp-controller="User" asp-action="Logout">
+            <a class="text-info" style="text-decoration:none"><i class="fa-solid fa-user"></i> <b>@User.Identity?.Name</b></a>
+            <button class="bg-dark text-white" type="submit" style="border:none;margin-left:40px;margin-right:20px;text-decoration:none"><i class="fa-solid fa-right-from-bracket"></i> <b>Logout</b></button>
+        </form>
+    }    
+}
+else
+{
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <a class="text-white" asp-controller="User" asp-action="Login" style="text-decoration:none"><i class="fa-solid fa-right-to-bracket"></i> <b>Login</b></a>
+        <a class="text-white" asp-controller="User" asp-action="Register" style="margin-left:40px;margin-right:20px;text-decoration:none"><i class="fa-regular fa-user"></i> <b>Register</b></a>
+    </form>
+}
+

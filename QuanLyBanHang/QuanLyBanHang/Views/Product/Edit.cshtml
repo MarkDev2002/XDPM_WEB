@@ -1,0 +1,112 @@
+﻿@using QuanLyBanHang.Entity;
+@using QuanLyBanHang.Models.Product;
+@model ProductEditViewModel;
+
+<div class="card">
+    <div class="card-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index">Product List</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
+            </ol>
+        </nav>
+    </div>
+    <form method="post" asp-action="Edit" enctype="multipart/form-data">
+        <div class="row mb-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.proName" class="form-control" id="inputProName" type="text" />
+                    <label for="inputProName">Product's name</label>
+                    <span asp-validation-for="@Model.proName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.proSize" class="form-control" id="inputSize" type="text" />
+                    <label for="inputSize">Product's size</label>
+                    <span asp-validation-for="@Model.proSize" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.proPrice" class="form-control" id="inputPrice" type="text" />
+                    <label for="inputPrice">Product's price</label>
+                    <span asp-validation-for="@Model.proPrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.proUpdateDate" class="form-control" id="inputDate" type="text" />
+                    <label for="inputDate">Update date</label>
+                    <span asp-validation-for="@Model.proUpdateDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div><br /><br /><br />
+        <div class="row mb-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <label for="inputGender">Customer's Gender</label>
+                <select asp-for="forGender" id="inputGender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+
+                <span asp-validation-for="forGender" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label for="inputStatus">Status</label>
+                <select asp-for="proStatus" id="inputStatus" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
+
+                <span asp-validation-for="proStatus" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <div class="btn btn-primary btn-icon-text">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <input asp-for="@Model.ImageUrl" type="file" value="Upload" />
+                    <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div><br /><br /><br />
+        <div class="row mb-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.proDiscount" class="form-control" id="inputDiscount" type="text" />
+                    <label for="inputDiscount">Product's discount</label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.Producer" class="form-control" id="inputpdcer" type="text" />
+                    <label for="inputpdcer">Producer</label>
+                    <span asp-validation-for="@Model.Producer" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.proDescription" class="form-control" id="inputDes" type="text" />
+                    <label for="inputDes">Product's Description</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating mb-3 mb-md-0">
+                    <input asp-for="@Model.Rate" class="form-control" id="inputRate" type="text" />
+                    <label for="inputRate">Rate</label>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="d-flex align-items-center justify-content-around mt-4 mb-0" style="padding-bottom:30px">
+            <button type="submit" class="btn btn-rounded btn-primary float-left"><i class="fas fa-plus-square" style="margin-right:0.7em"></i>Save</button>
+            <a asp-action="Index" class="btn btn-rounded btn-success float-right"><i class="fas fa-caret-square-left" style="margin-right:0.7em"></i>Back</a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

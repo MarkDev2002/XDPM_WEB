@@ -1,0 +1,61 @@
+﻿@using QuanLyBanHang.Models.Cart;
+@model CartAddViewModel;
+@using (Html.BeginForm("AddToCart","Cart", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.DateCreated)
+    @Html.HiddenFor(model => model.ImageUrl)
+    @Html.HiddenFor(model => model.proID)
+    @Html.HiddenFor(model => model.proName)
+    @Html.HiddenFor(model => model.proSize)
+    @Html.HiddenFor(model => model.proPrice)
+    @Html.HiddenFor(model => model.Producer)
+    @Html.HiddenFor(model => model.forGender)
+    <div class="col-md-12 grid-margin grid-margin-md-0">
+        <div class="card">
+            <div class="card-body">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Shop">All products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add to your cart</li>
+                    </ol>
+                </nav><br /><br />
+
+                <div class="wrap d-flex justify-content-md-start justify-content-sm-center flex-wrap">
+                    <img style="height:400px" src="@Url.Content(@Model.ImageUrl)" />
+
+                    <div class="wrap align-content-center ml-5">
+                        <p class="font-weight-bold text-success" style="font-size:20px"><b>@Model.proName</b></p>
+                        <hr style="background-color:black" />
+                        <b>
+                            <p class="font-weight-normal text-danger">ID: @Model.proID</p>
+                            <p class="font-weight-normal text-danger"> Brand: @Model.Producer</p>
+                            <hr style="background-color:black" />
+                            <p class="font-weight-normal text-danger">Price: @Model.proPrice</p>
+                            <hr style="background-color:black" />
+                            <p class="font-weight-normal text-danger">Size: @Model.proSize</p>
+                            <p class="font-weight-normal text-danger"> Gender: @Model.forGender</p>
+                            <hr style="background-color:black" />
+                        </b>
+                        <label for="inputQ">Quantity</label>
+                        <input asp-for="@Model.Quantity" class="form-control" id="inputQ" type="text" />
+
+                        <span asp-validation-for="@Model.Quantity" class="text-danger"></span>
+                        <div class="d-flex align-items-center justify-content-around mt-4 mb-0" style="padding-bottom:30px">
+                            <button type="submit" class="btn btn-rounded btn-primary float-left"><i class="fas fa-plus-square" style="margin-right:0.7em"></i>Add to Cart</button>
+                            <a asp-action="Index" asp-controller="Shop" class="btn btn-rounded btn-success float-right"><i class="fas fa-caret-square-left" style="margin-right:0.7em"></i>Back</a>
+                        </div>
+                        <br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

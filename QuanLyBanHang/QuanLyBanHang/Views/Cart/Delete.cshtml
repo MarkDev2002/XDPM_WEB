@@ -1,0 +1,38 @@
+﻿@using QuanLyBanHang.Models.Cart;
+@model CartDeleteViewModel;
+@using (Html.BeginForm("Delete","Cart", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.proId)
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">Your cart</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Delete Product From Cart</li>
+                </ol>
+            </nav>
+            <div class="wrap d-flex justify-content-md-start justify-content-sm-center flex-wrap">
+                <img style="height:400px" src="@Url.Content(@Model.proImage)" alt="" />
+                <div class="wrap align-content-center ml-5">
+                    <p class="font-weight-bold text-success" style="font-size:20px"><b>@Model.proName</b></p>
+                    <p class="font-weight-normal text-danger"><b>ID: @Model.proId</b></p>
+                    <hr style="background-color:black" />
+                    <p class="font-weight-normal"><b>Quantity: @Model.Quantity</b></p>
+                    <br /><br />
+                </div>
+            
+            </div>
+            <form method="post" asp-action="Delete">
+                <button type="submit" class="btn btn-danger">Yes</button>
+                <a asp-action="Index" class="btn btn-info">No</a>
+            </form>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
