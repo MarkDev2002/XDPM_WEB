@@ -189,7 +189,7 @@ namespace QuanLyBanHang.Controllers
             var cart = _cartService.GetByUserName(id);
             if (cart == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
             var model = new CartDeleteViewModel
             {

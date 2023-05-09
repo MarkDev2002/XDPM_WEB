@@ -68,6 +68,7 @@ namespace QuanLyBanHang.Controllers
                         cusFullName = model.cusFullName,
                         cusEmail = model.cusEmail,
                         cusGender = model.Gender,
+                        cusAddress = model.cusAddress,
                     };
                     await _customerService.CreateAsSync(customer);
                     await _signInManager.SignInAsync(user, isPersistent: false);

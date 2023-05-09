@@ -58,6 +58,7 @@ namespace QuanLyBanHang.Controllers
                 cusFullName = customer.cusFullName,
                 cusEmail = customer.cusEmail,
                 Gender = customer.cusGender,
+                cusAddress = customer.cusAddress,  
             };
             return View(model);
         }

@@ -30,7 +30,5 @@ namespace QuanLyBanHang.Models.Customer
         public Gender Gender { get; set; }
         [Required(ErrorMessage = "Your address is required.")]
         public string cusAddress { get; set; }
-        [Required(ErrorMessage = "Payment Method is required")]
-        public PaymentMethod PaymentMethod { get; set; }
     }
 }
