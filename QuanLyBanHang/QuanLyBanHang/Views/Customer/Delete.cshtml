@@ -1,0 +1,31 @@
+﻿@using QuanLyBanHang.Models.Customer;
+@model CustomerDeleteViewModel;
+@using (Html.BeginForm())
+{
+<div class="card">
+    <div class="card-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index">Customer List</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Delete Account</li>
+            </ol>
+        </nav>        
+        <br /><br />
+        <br /><br />
+        Username: <input asp-for="@Model.nameOfUser">
+        <br /><br />
+        FullName: <input asp-for="@Model.fullName">
+        <br /><br />
+        
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a asp-action="Index" class="btn btn-info">No</a>
+        
+    </div>
+</div>
+}
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

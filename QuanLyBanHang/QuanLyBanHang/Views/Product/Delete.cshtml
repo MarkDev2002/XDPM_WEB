@@ -1,0 +1,30 @@
+﻿@using QuanLyBanHang.Models.Product;
+@model ProductDeleteViewModel;
+
+<div class="card">
+    <div class="card-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index">Product List</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Delete Product</li>
+            </ol>
+        </nav>
+        <img style="width:400px" src="@Url.Content(@Model.ImageUrl)" />
+        <br /><br />
+        ID: <input asp-for="@Model.Id">
+        <br /><br />
+        Name: <input style="width: 400px" asp-for="@Model.proName">
+        <br /><br />
+        <form method="post" asp-action="Delete">
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a asp-action="Index" class="btn btn-info">No</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

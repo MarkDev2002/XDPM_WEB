@@ -1,0 +1,14 @@
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\bin\Debug\net7.0\QuanLyBanHang.Entity.deps.json
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\bin\Debug\net7.0\QuanLyBanHang.Entity.runtimeconfig.json
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\bin\Debug\net7.0\QuanLyBanHang.Entity.dll
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\bin\Debug\net7.0\QuanLyBanHang.Entity.pdb
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.AssemblyInfo.cs
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.dll
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\refint\QuanLyBanHang.Entity.dll
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.pdb
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\QuanLyBanHang.Entity.genruntimeconfig.cache
+C:\Users\DELL\source\repos\QuanLyBanHang\QuanLyBanHang.Entity\obj\Debug\net7.0\ref\QuanLyBanHang.Entity.dll
