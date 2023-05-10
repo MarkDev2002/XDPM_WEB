@@ -31,13 +31,8 @@ namespace QuanLyBanHang.DataAccess
                     Id = "133f85fc-3e0c-4bd0-a820-d379c0bf9dc5",
                     Name = "Admin",
                     NormalizedName = "ADMIN".ToUpper()
-                },
-                new IdentityRole
-                {
-                    Id = "13ae282b-4fbc-49e6-8deb-4a5e4e8bb130",
-                    Name = "Manager",
-                    NormalizedName = "MANAGER".ToUpper()
                 }
+
             );
 
             var hasher = new PasswordHasher<IdentityUser>();
@@ -58,11 +53,6 @@ namespace QuanLyBanHang.DataAccess
                 {
                     UserId = "f139186b-6419-4cb1-8c80-32755a3f7c01",
                     RoleId = "133f85fc-3e0c-4bd0-a820-d379c0bf9dc5"
-                },
-                new IdentityUserRole<string>
-                {
-                    UserId = "f139186b-6419-4cb1-8c80-32755a3f7c01",
-                    RoleId = "13ae282b-4fbc-49e6-8deb-4a5e4e8bb130"
                 }
             );
         }

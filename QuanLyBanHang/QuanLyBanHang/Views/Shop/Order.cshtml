@@ -20,6 +20,7 @@
                             <th>Date</th>
                             <th>Price</th>
                             <th>Status</th>
+                            <th class="text-warning">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,20 @@
                                 {
                                     <th style="color: gainsboro">@item.orderStatus</th>
                                 }
+                                <td>
+                                    <a class="text-success" asp-action="DetailOrder" asp-route-id="@item.orderID">
+                                        <i class="fa-solid fa-circle-info"></i> Detail
+                                    </a>
+                                    @if (item.orderStatus == QuanLyBanHang.Entity.OrderStatus.InProgress)
+                                    {
+                                        <a class="text-danger" asp-action="DeleteOrder" asp-route-id="@item.orderID">
+                                            <i class="far fa-trash-alt"></i> Delete Order
+                                        </a>
+                                    }
+                                    
+
+
+                                </td>
                             </tr>
                         }
                     </tbody>

@@ -1,0 +1,29 @@
+﻿@using QuanLyBanHang.Models.Order;
+@model OrderDeleteViewModel;
+@using (Html.BeginForm())
+{
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Order">Your Order List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Delete Order</li>
+                </ol>
+            </nav>
+            <br /><br />
+            <br /><br />
+            ID: <input asp-for="@Model.orderID">
+            <br /><br />
+            <b>Do you really want to delete this order?</b>
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a asp-action="Order" class="btn btn-info">No</a>
+
+        </div>
+    </div>
+}
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

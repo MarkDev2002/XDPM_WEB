@@ -164,5 +164,70 @@ namespace QuanLyBanHang.Controllers
             }).ToList();
             return View(model);
         }
+        [HttpGet]
+        public IActionResult DetailOrder(int id)
+        {
+            var order = _orderService.GetById(id);
+            var orderDetail = _orderDetailService.GetAll().Where(p => p.orderID == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            if (orderDetail == null)
+            {
+                return NotFound();
+            }
+            var model = orderDetail.Select(od => new OrderDetailViewModel
+            {
+                UserName = order.UserName,
+                orderID = order.orderID,
+                cusPhone = order.cusPhone,
+                orderMessage = order.orderMessage,
+                orderDateTime = order.orderDateTime,
+                orderTotal = order.orderTotal,
+                cusAddress = order.cusAddress,
+                orderStatus = order.orderStatus,
+                proImage = _productService.GetById(od.proID).ImageUrl,
+                proName = _productService.GetById(od.proID).proName,
+                proID = od.proID,
+                ordtsQuantity = od.ordtsQuantity,
+                ordtsTotal = od.ordtsTotal,
+                ordtsItemPrice = od.ordtsItemPrice,
+                paymentMethod = order.paymentMethod,
+            }).ToList();
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult DeleteOrder(int id)
+        {
+            var order = _orderService.GetById(id);
+            if (order.orderStatus == OrderStatus.Completed || order.orderStatus == OrderStatus.Closed)
+            {
+                return RedirectToAction("AccessDenied","User");
+            }
+            if (order == null)
+            {
+                return NotFound();
+            }
+            var model = new OrderDeleteViewModel
+            {
+                orderID = order.orderID,
+            };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteOrder(OrderDeleteViewModel model)
+        {
+            var order = _orderService.GetById(model.orderID);
+            
+            if (order == null)
+            {
+                return NotFound();
+            }
+            _orderService.DeleteById(model.orderID);
+
+            return RedirectToAction("Order");
+        }
     }
 }
