@@ -16,6 +16,7 @@ namespace QuanLyBanHang.Entity
         public string cusEmail { get; set; }
         public string cusAddress { get; set; }
         public Gender cusGender { get; set; }
+        public virtual ICollection<Cart> CartItems { get; set; }
         public virtual ICollection<Order> OrderList { get; set; }
     }
 }

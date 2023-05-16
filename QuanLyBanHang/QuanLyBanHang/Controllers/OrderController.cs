@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using QuanLyBanHang.Models.Order;
 using QuanLyBanHang.Entity;
 using QuanLyBanHang.Service;
+using QuanLyBanHang.Models.Product;
 
 namespace QuanLyBanHang.Controllers
 {
@@ -106,6 +107,31 @@ namespace QuanLyBanHang.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+        [HttpGet]
+        public IActionResult SortedByDate(string sortOrder)
+        {
+            var model = _orderService.GetAll().Select(order => new OrderIndexViewModel
+            {
+                UserName = order.UserName,
+                orderID = order.orderID,
+                cusPhone = order.cusPhone,
+                orderMessage = order.orderMessage,
+                orderDateTime = order.orderDateTime,
+                orderStatus = order.orderStatus,
+                orderTotal = order.orderTotal,
+                cusAddress = order.cusAddress,
+                paymentMethod = order.paymentMethod,
+            }).ToList();
+            switch (sortOrder)
+            {
+                case "desc":
+                    return View(model.OrderByDescending(ord => ord.orderDateTime).ToList());
+                case "inc":
+                    return View(model.OrderBy(ord => ord.orderDateTime).ToList());
+            }
+            return View(model);
+
         }
     }
 }

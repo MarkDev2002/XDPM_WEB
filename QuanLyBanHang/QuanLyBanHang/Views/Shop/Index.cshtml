@@ -1,4 +1,5 @@
-﻿@using QuanLyBanHang.Models.Product;
+﻿@using QuanLyBanHang.Entity;
+@using QuanLyBanHang.Models.Product;
 @model IEnumerable<ProductIndexViewModel>;
 <div class="card">
     <div class="card-body">
@@ -8,14 +9,30 @@
                 <li class="breadcrumb-item active" aria-current="page">All products</li>
             </ol>
         </nav>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>@TempData["ErrorMessage"]</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
         <div class="row">
+                      
             <div class="col-md-12 table-responsive-md">
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Price</th>
+                            <th>
+                                Price 
+                                <a type="button" class="btn btn-secondary" asp-action="SortedByPrice" asp-route-sortOrder="desc">
+                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                                </a>
+                                <a type="button" class="btn btn-secondary" asp-action="SortedByPrice" asp-route-sortOrder="inc">
+                                    <i class="fa-solid fa-arrow-down-short-wide"></i>
+                                </a>
+                            </th>
                             <th>Size</th>
                             <th>Brand</th>
                             <th>Update Date</th>
@@ -39,7 +56,15 @@
                                     <th>@item.proSize</th>
                                     <th>@item.Producer</th>
                                     <th>@item.proUpdateDate.ToShortDateString()</th>
-                                    <th>@item.proStatus</th>
+                                    @if (item.proStatus == Status.Available)
+                                    {
+                                        <th class="text-success">@item.proStatus</th>
+                                    }
+                                    else
+                                    {
+                                        <th class="text-danger">@item.proStatus</th>
+
+                                    }
                                     <th>@item.forGender</th>
                                     <td>
                                         <img style="width:80px" src="@Url.Content(@item.ImageUrl)" />

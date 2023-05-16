@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -74,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Order/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Order/SortedByDate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcU29ydGVkQnlEYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Order/UpdateStatus.cshtml]
@@ -98,6 +106,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Product/SortedByPrice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTb3J0ZWRCeVByaWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Product/SortedByQuantity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTb3J0ZWRCeVF1YW50aXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Search/ProductSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXFByb2R1Y3RTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Shared/Error.cshtml]
@@ -146,6 +166,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Shop/SortedByNike.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxTb3J0ZWRCeU5pa2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/Shop/SortedByPrice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxTb3J0ZWRCeVByaWNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/source/repos/QuanLyBanHang/QuanLyBanHang/Views/User/AccessDenied.cshtml]

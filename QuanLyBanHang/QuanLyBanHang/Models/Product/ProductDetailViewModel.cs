@@ -23,6 +23,6 @@ namespace QuanLyBanHang.Models.Product
 
         public Status proStatus { get; set; }
         public Gender forGender { get; set; }
-        public float? Rate { get; set; }
+        public long Quantity { get; set; }
     }
 }

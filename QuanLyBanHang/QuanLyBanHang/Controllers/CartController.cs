@@ -39,7 +39,7 @@ namespace QuanLyBanHang.Controllers
         public IActionResult Index()
         {
             var username = _userManager.GetUserName(User);
-            var model = _cartService.GetAll().Where(c => c.UserName == username).ToList();
+            var model = _cartService.GetAll().Where(c => c.nameofUser == username).ToList();
             return View(model);
         }
         [HttpGet]
@@ -50,8 +50,14 @@ namespace QuanLyBanHang.Controllers
             {
                 return NotFound();
             }
+            if(product.proStatus == Status.Unavailable)
+            {
+                TempData["ErrorMessage"] = "["+product.proName+"] is unavailable.";
+                return RedirectToAction("Index","Shop");
+            }
             var model = new CartAddViewModel
             {
+                
                 proID = product.proID,
                 proName = product.proName,
                 proSize = product.proSize,
@@ -59,6 +65,7 @@ namespace QuanLyBanHang.Controllers
                 Producer = product.Producer,
                 ImageUrl = product.ImageUrl,
                 forGender = product.forGender,
+                availableQuantity = product.Quantity
             };
             return View(model);
         }
@@ -68,23 +75,39 @@ namespace QuanLyBanHang.Controllers
         {
             if (ModelState.IsValid)
             {
-                var username = _userManager.GetUserName(User);
+                var username = _userManager.GetUserName(User);                
                 if (username == null)
                 {
                     return NotFound();
                 }
-                var cart = new Cart
+                var findCartItem = _cartService.GetAll().Where(c => c.proId == model.proID && c.nameofUser == username).FirstOrDefault();
+                var temp = 0;
+                if (findCartItem == null)
                 {
-                    proPrice = model.proPrice,
-                    UserName = username,
-                    proId = model.proID,
-                    proName = model.proName,
-                    proImage = model.ImageUrl,
-                    Quantity = model.Quantity,
-                    DateCreated = model.DateCreated,
-                };
-                await _cartService.AddItemToCart(cart);
-                return RedirectToAction("Index","Shop");
+                    temp = 0;
+                }
+                else
+                    temp = findCartItem.Quantity;
+                if (model.Quantity + temp <= model.availableQuantity)
+                {
+                    var cart = new Cart
+                    {
+                        proPrice = model.proPrice,
+                        nameofUser = username,
+                        proId = model.proID,
+                        proName = model.proName,
+                        proImage = model.ImageUrl,
+                        Quantity = model.Quantity,
+                        DateCreated = model.DateCreated,
+                    };
+                    await _cartService.AddItemToCart(cart);
+                    return RedirectToAction("Index", "Shop");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Available quantity is: " + model.availableQuantity + ", please try again!";
+                    return View(model);
+                }
             }
             return View();
 
@@ -107,7 +130,7 @@ namespace QuanLyBanHang.Controllers
                 proUpdateDate = product.proUpdateDate,
                 proDescription = product.proDescription,
                 Producer = product.Producer,
-                Rate = product.Rate,
+                Quantity = product.Quantity,
                 ImageUrl = product.ImageUrl,
                 proStatus = product.proStatus,
                 forGender = product.forGender
@@ -124,7 +147,7 @@ namespace QuanLyBanHang.Controllers
             }
             var model = new CartDeleteViewModel
             {
-                UserName = cart.UserName,
+                UserName = cart.nameofUser,
                 proId = cart.proId,
                 proImage = cart.proImage,
                 proName = cart.proName,
@@ -193,7 +216,7 @@ namespace QuanLyBanHang.Controllers
             }
             var model = new CartDeleteViewModel
             {
-                UserName = cart.UserName
+                UserName = cart.nameofUser
             };
             return View(model);
         }
@@ -217,9 +240,19 @@ namespace QuanLyBanHang.Controllers
         public async Task<IActionResult> CreateOrder([FromForm]OrderCreateViewModel model)
         {
             var username = _userManager.GetUserName(User);
+            var cart = _cartService.GetAll().ToList();
             if (username == null)
             {
                 return NotFound();
+            }
+            foreach (Cart od in cart)
+            {
+                var product = _productService.GetById(od.proId);
+                if (product.Quantity < od.Quantity)
+                {
+                    TempData["ErrorMessage"] = "[" + product.proName + "] quantity is not enough. Available quantity is: " + product.Quantity + ".";
+                    return View();
+                }
             }
             var order = new Order
             {
@@ -238,9 +271,9 @@ namespace QuanLyBanHang.Controllers
             {
                 return RedirectToAction("Order","Shop");
             }
-            var cart = _cartService.GetAll().ToList();
-            await _orderService.CreateAsSync(order); 
-            foreach(Cart od in cart) 
+            
+            await _orderService.CreateAsSync(order);
+            foreach (Cart od in cart) 
             {
                 var orderDetail =new OrderDetail
                 {
@@ -250,7 +283,14 @@ namespace QuanLyBanHang.Controllers
                     ordtsQuantity = od.Quantity,
                     ordtsTotal = od.Quantity * od.proPrice,
                 };
-                await _orderDetailService.CreateAsSync(orderDetail);
+                var product = _productService.GetById(orderDetail.proID);
+                product.Quantity -= orderDetail.ordtsQuantity;
+                if (product.Quantity == 0)
+                {
+                    product.proStatus = Status.Unavailable;
+                }
+                await _productService.UpdateAsSync(product);
+                await _orderDetailService.CreateAsSync(orderDetail);                
             } 
             var orderTotal = (long)_orderDetailService.GetTotalOrder(order.orderID);
             var updateOrder = _orderService.GetById(order.orderID);

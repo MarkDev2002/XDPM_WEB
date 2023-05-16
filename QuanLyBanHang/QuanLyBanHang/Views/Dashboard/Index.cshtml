@@ -1,0 +1,221 @@
+﻿@using QuanLyBanHang.Models.Dashboard;
+@model DashboardIndexViewModel;
+
+<div class="card">
+    <div class="card-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+        </nav>
+        <div class="row" style="margin:50px">
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 10px solid #4e73df">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    <strong>Customers</strong>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.cusQuantity</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-users fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 10px solid #1cc88a">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    <strong>Products</strong>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.productQuantity</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-solid fa-cart-shopping fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 10px solid #36b9cc">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    <strong>Orders (Today)</strong>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.orderTodayQuantity</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa-brands fa-shopify fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2" style="border-left: 10px solid #f6c23e">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    <strong>Earnings (Today)</strong>
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.earningToday</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <strong>Month</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card shadow h-100 py-2" style="border-left: 10px solid #36b9cc">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                    <strong>Orders (Month)</strong>
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.orderMonthQuantity</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fa-brands fa-shopify fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card shadow h-100 py-2" style="border-left: 10px solid #f6c23e">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    <strong>Earnings (Month)</strong>
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.earningMonth</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-3 mb-4"></div>
+                            <div class="col-xl-6 col-md-6 mb-4">
+                                <div class="card shadow h-100 py-2" style="border-left: 10px solid #1cc88a">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    <strong>Quantity of Sold Products</strong>
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.productQuantitySold / @Model.totalProQuantity</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fa-solid fa-cart-shopping fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-3 mb-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var salesData = @Html.Raw(Json.Serialize(Model.earningMonths));
+    var ctx = document.getElementById("myChart");
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [{
+                label: "Earnings",
+                lineTension: 0.3,
+                backgroundColor: "rgba(2,117,216,0.2)",
+                borderColor: "rgba(2,117,216,1)",
+                pointRadius: 5,
+                pointBackgroundColor: "rgba(2,117,216,1)",
+                pointBorderColor: "rgba(255,255,255,0.8)",
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                pointHitRadius: 50,
+                pointBorderWidth: 2,
+                data: salesData,
+            }],
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    time: {
+                        unit: 'date'
+                    },
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        maxTicksLimit: 7
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: 40000,
+                        maxTicksLimit: 5
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, .125)",
+                    }
+                }],
+            },
+            legend: {
+                display: false
+            }
+        }
+    });
+</script>
+

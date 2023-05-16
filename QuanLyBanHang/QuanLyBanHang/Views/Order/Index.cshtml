@@ -18,7 +18,14 @@
                             <th>Phone</th>
                             <th>Address</th>
                             <th>Price</th>
-                            <th>Date</th>
+                            <th>
+                                Date<a type="button" class="btn btn-secondary" asp-action="SortedByDate" asp-route-sortOrder="desc">
+                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                                </a>
+                                <a type="button" class="btn btn-secondary" asp-action="SortedByDate" asp-route-sortOrder="inc">
+                                    <i class="fa-solid fa-arrow-down-short-wide"></i>
+                                </a>
+                            </th>
                             <th>Message</th>
                             <th>Payment Method</th>
                             <th>Status</th>

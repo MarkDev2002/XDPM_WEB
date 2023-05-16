@@ -16,10 +16,6 @@ namespace QuanLyBanHang.Entity
         [Key]
         public int proID { get; set; }
 
-        public int? pdcID { get; set; }
-
-        public int? typeID { get; set; }
-
         public string proName { get; set; }
 
         public string proSize { get; set; }
@@ -37,8 +33,7 @@ namespace QuanLyBanHang.Entity
         public Gender forGender { get; set; }
 
         public  string Producer { get; set; }
-
-        public  float? Rate { get; set; }
+        public long Quantity { get; set; }
         public ICollection<OrderDetail> orderDetail { get; set; }
     }
 }

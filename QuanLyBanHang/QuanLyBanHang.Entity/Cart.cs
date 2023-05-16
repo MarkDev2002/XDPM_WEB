@@ -11,7 +11,7 @@ namespace QuanLyBanHang.Entity
     {
         [Key]
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string nameofUser { get; set; }
         public string proName { get; set; }
         public string proImage { get; set; }
         public long proPrice { get; set; }

@@ -32,6 +32,6 @@ namespace QuanLyBanHang.Models.Product
         [Required(ErrorMessage = "This information is required")]
         public Gender forGender { get; set; }
         [Required(ErrorMessage = "Rate is required")]
-        public float? Rate { get; set; }
+        public long Quantity { get; set; }
     }
 }

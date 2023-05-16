@@ -51,6 +51,11 @@ namespace QuanLyBanHang.Service.implementation
             return _context.Products.Where(x => x.proID == id).FirstOrDefault();
         }
 
+        public decimal QuantityHandling()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task UpdateAsSync(Product newProduct)
         {
             _context.Products.Update(newProduct);

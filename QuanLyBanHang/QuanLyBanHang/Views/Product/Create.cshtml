@@ -47,19 +47,13 @@
                     <span asp-validation-for="@Model.proSize" class="text-danger"></span>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <label for="inputGender">Customer's Gender</label>
                 <select asp-for="forGender" id="inputGender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()"></select>
 
                 <span asp-validation-for="forGender" class="text-danger"></span>
             </div>
-            <div class="col-md-2">
-                <label for="inputStatus">Status</label>
-                <select asp-for="proStatus" id="inputStatus" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
-
-                <span asp-validation-for="proStatus" class="text-danger"></span>
-            </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-4 form-group">
                 <div class="btn btn-primary btn-icon-text">
                     <i class="fas fa-cloud-upload-alt"></i>
                     <input asp-for="@Model.ImageUrl" type="file" value="Upload" />
@@ -79,7 +73,7 @@
             <div class="col-md-2">
                 <div class="form-floating mb-3 mb-md-0">
                     <input asp-for="@Model.Producer" class="form-control" id="inputpdcer" type="text" />
-                    <label for="inputpdcer">Producer</label>
+                    <label for="inputpdcer">Brand</label>
                     <span asp-validation-for="@Model.Producer" class="text-danger"></span>
                 </div>
             </div>
@@ -91,8 +85,8 @@
             </div>
             <div class="col-md-2">
                 <div class="form-floating mb-3 mb-md-0">
-                    <input asp-for="@Model.Rate" class="form-control" id="inputRate" type="text" />
-                    <label for="inputRate">Rate</label>
+                    <input asp-for="@Model.Quantity" class="form-control" id="inputRate" type="text" />
+                    <label for="inputRate">Quantity</label>
                 </div>
             </div>
             <div class="col-md-1"></div>

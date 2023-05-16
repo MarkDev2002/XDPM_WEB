@@ -16,5 +16,6 @@ namespace QuanLyBanHang.Service
         Product GetById(int id);
         IEnumerable<Product> GetAll();
         Task DeleteAsync(Product product);
+        decimal QuantityHandling();
     }
 }

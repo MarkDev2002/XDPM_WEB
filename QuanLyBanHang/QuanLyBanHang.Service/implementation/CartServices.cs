@@ -23,7 +23,7 @@ namespace QuanLyBanHang.Service.implementation
         public async Task AddItemToCart(Cart newCart)
         {
             var product = _productService.GetById(newCart.proId);
-            var existingCartItem = _context.Carts.Where(ci => ci.UserName == newCart.UserName && ci.proId == newCart.proId).FirstOrDefault();
+            var existingCartItem = _context.Carts.Where(ci => ci.nameofUser == newCart.nameofUser && ci.proId == newCart.proId).FirstOrDefault();
 
             if (existingCartItem != null)
             {
@@ -71,7 +71,7 @@ namespace QuanLyBanHang.Service.implementation
         }
         public Cart GetByUserName(string username)
         {
-            return _context.Carts.Where(x => x.UserName == username).FirstOrDefault();
+            return _context.Carts.Where(x => x.nameofUser == username).FirstOrDefault();
         }
         public Cart GetByProID(int ID)
         {

@@ -17,5 +17,6 @@ namespace QuanLyBanHang.Models.Cart
         public int Quantity { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.UtcNow;
         public Gender forGender { get; set; }
+        public long availableQuantity { get; set; }
     }
 }

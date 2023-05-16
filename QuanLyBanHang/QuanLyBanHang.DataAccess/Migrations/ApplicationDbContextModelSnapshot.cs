@@ -54,12 +54,6 @@ namespace QuanLyBanHang.DataAccess.Migrations
                             Id = "133f85fc-3e0c-4bd0-a820-d379c0bf9dc5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "13ae282b-4fbc-49e6-8deb-4a5e4e8bb130",
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
                         });
                 });
 
@@ -157,15 +151,15 @@ namespace QuanLyBanHang.DataAccess.Migrations
                         {
                             Id = "f139186b-6419-4cb1-8c80-32755a3f7c01",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7144d54e-ffb6-48bd-871f-337e97a42ed0",
+                            ConcurrencyStamp = "66d8bc8c-dd8e-4830-a22d-b7b19d6ed95b",
                             Email = "nvt@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "NVT@GMAIL.COM",
                             NormalizedUserName = "VANTIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAjYfEQACs1rZgEkxLpQe7+MQjdf1u92VjvY1Z/wKldb1gScxN2xk+VpgsDRnbM33g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKDgAzCGgy/PZBLO9ACv/slYXTBEtmHCBVEdN8YBeOblDUTzfUdXQBU1zSifq082VA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d5e3f42e-e56b-4042-a180-e922de6d4b63",
+                            SecurityStamp = "9f1a69fa-619c-4181-ab7a-759e05ce1285",
                             TwoFactorEnabled = false,
                             UserName = "VanTin"
                         });
@@ -239,11 +233,6 @@ namespace QuanLyBanHang.DataAccess.Migrations
                         {
                             UserId = "f139186b-6419-4cb1-8c80-32755a3f7c01",
                             RoleId = "133f85fc-3e0c-4bd0-a820-d379c0bf9dc5"
-                        },
-                        new
-                        {
-                            UserId = "f139186b-6419-4cb1-8c80-32755a3f7c01",
-                            RoleId = "13ae282b-4fbc-49e6-8deb-4a5e4e8bb130"
                         });
                 });
 
@@ -285,7 +274,7 @@ namespace QuanLyBanHang.DataAccess.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("nameofUser")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -424,13 +413,10 @@ namespace QuanLyBanHang.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float?>("Rate")
-                        .HasColumnType("real");
+                    b.Property<long>("Quantity")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("forGender")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("pdcID")
                         .HasColumnType("int");
 
                     b.Property<string>("proDescription")
@@ -455,9 +441,6 @@ namespace QuanLyBanHang.DataAccess.Migrations
 
                     b.Property<DateTime>("proUpdateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("typeID")
-                        .HasColumnType("int");
 
                     b.HasKey("proID");
 
@@ -518,7 +501,7 @@ namespace QuanLyBanHang.DataAccess.Migrations
             modelBuilder.Entity("QuanLyBanHang.Entity.Cart", b =>
                 {
                     b.HasOne("QuanLyBanHang.Entity.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("CartItems")
                         .HasForeignKey("CustomernameofUser");
 
                     b.Navigation("Customer");
@@ -554,6 +537,8 @@ namespace QuanLyBanHang.DataAccess.Migrations
 
             modelBuilder.Entity("QuanLyBanHang.Entity.Customer", b =>
                 {
+                    b.Navigation("CartItems");
+
                     b.Navigation("OrderList");
                 });
 

@@ -15,6 +15,7 @@ namespace QuanLyBanHang.Controllers
 {
     public class UserController : Controller
     {
+        private ICartService _cartService;
         private ICustomerService _customerService;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -25,7 +26,8 @@ namespace QuanLyBanHang.Controllers
             ApplicationDbContext context,
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            IWebHostEnvironment webHostEnvironment
+            IWebHostEnvironment webHostEnvironment,
+            ICartService cartService
             )
         {
             _context = context;
@@ -33,6 +35,7 @@ namespace QuanLyBanHang.Controllers
             _signInManager = signInManager;
             _webHostEnvironment = webHostEnvironment;
             _customerService = customerService;
+            _cartService = cartService;
         }
 
         [HttpGet]
@@ -85,6 +88,7 @@ namespace QuanLyBanHang.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
+            await _cartService.DeleteAll();
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index","Home");
         }

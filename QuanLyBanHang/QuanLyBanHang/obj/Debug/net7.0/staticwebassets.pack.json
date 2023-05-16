@@ -257,6 +257,38 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\ad-banner-1-2.jpg",
+      "PackagePath": "staticwebassets\\picture\\ad-banner-1-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\ad-banner-3-2.png",
+      "PackagePath": "staticwebassets\\picture\\ad-banner-3-2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\ad-banner-3.png",
+      "PackagePath": "staticwebassets\\picture\\ad-banner-3.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\ad-banner-6.jpg",
+      "PackagePath": "staticwebassets\\picture\\ad-banner-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\ad-banner-7.jpg",
+      "PackagePath": "staticwebassets\\picture\\ad-banner-7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\art-1.jpg",
+      "PackagePath": "staticwebassets\\picture\\art-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\art-2.jpg",
+      "PackagePath": "staticwebassets\\picture\\art-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\loader.gif",
+      "PackagePath": "staticwebassets\\picture\\loader.gif"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\logo.png",
       "PackagePath": "staticwebassets\\picture\\logo.png"
     },
@@ -397,6 +429,10 @@
       "PackagePath": "staticwebassets\\picture\\products\\231832621ADIDAS ADIFOM Q CLOUD WHITE.jpg"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\232251021ADIDAS ADIFOM Q CLOUD WHITE.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\232251021ADIDAS ADIFOM Q CLOUD WHITE.jpg"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\232703778ADIDAS ADIFOM Q CLOUD WHITE.jpg",
       "PackagePath": "staticwebassets\\picture\\products\\232703778ADIDAS ADIFOM Q CLOUD WHITE.jpg"
     },
@@ -413,8 +449,48 @@
       "PackagePath": "staticwebassets\\picture\\products\\232839737AIR JORDAN 4 RETRO SB PINE GREEN.jpg"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\233458578ADIDAS ADIFOM Q CLOUD WHITE.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\233458578ADIDAS ADIFOM Q CLOUD WHITE.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\233522193ADIDAS SAMBA OG CLOUD WHITE CORE BLACK.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\233522193ADIDAS SAMBA OG CLOUD WHITE CORE BLACK.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\233600271ADIDAS ADIFOM SUPERSTAR WHITE.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\233600271ADIDAS ADIFOM SUPERSTAR WHITE.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\233623970AIR JORDAN 1 LOW UNC GREY.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\233623970AIR JORDAN 1 LOW UNC GREY.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\233647913AIR JORDAN 4 RETRO SB PINE GREEN.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\233647913AIR JORDAN 4 RETRO SB PINE GREEN.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\233707882AIR JORDAN 3 RETRO WHITE CEMENT REIMAGINED.jpg",
+      "PackagePath": "staticwebassets\\picture\\products\\233707882AIR JORDAN 3 RETRO WHITE CEMENT REIMAGINED.jpg"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\products\\235509224ADIDAS ADIFOM Q CLOUD WHITE.jpg",
       "PackagePath": "staticwebassets\\picture\\products\\235509224ADIDAS ADIFOM Q CLOUD WHITE.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\shoes-space.gif",
+      "PackagePath": "staticwebassets\\picture\\shoes-space.gif"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\spinner.gif",
+      "PackagePath": "staticwebassets\\picture\\spinner.gif"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\spinner_2.gif",
+      "PackagePath": "staticwebassets\\picture\\spinner_2.gif"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\QuanLyBanHang\\QuanLyBanHang\\wwwroot\\picture\\welcome-2.jpg",
+      "PackagePath": "staticwebassets\\picture\\welcome-2.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.QuanLyBanHang.Microsoft.AspNetCore.StaticWebAssets.props",

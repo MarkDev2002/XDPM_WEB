@@ -10,6 +10,7 @@
     @Html.HiddenFor(model => model.proPrice)
     @Html.HiddenFor(model => model.Producer)
     @Html.HiddenFor(model => model.forGender)
+    @Html.HiddenFor(model => model.availableQuantity)
     <div class="col-md-12 grid-margin grid-margin-md-0">
         <div class="card">
             <div class="card-body">
@@ -20,7 +21,13 @@
                         <li class="breadcrumb-item active" aria-current="page">Add to your cart</li>
                     </ol>
                 </nav><br /><br />
-
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>@TempData["ErrorMessage"]</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
                 <div class="wrap d-flex justify-content-md-start justify-content-sm-center flex-wrap">
                     <img style="height:400px" src="@Url.Content(@Model.ImageUrl)" />
 

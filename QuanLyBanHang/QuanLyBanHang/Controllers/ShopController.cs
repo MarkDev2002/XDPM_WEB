@@ -8,6 +8,7 @@ using QuanLyBanHang.Service.implementation;
 using Microsoft.CodeAnalysis;
 using QuanLyBanHang.Models.Cart;
 using QuanLyBanHang.Models.Order;
+using System.Collections;
 
 namespace QuanLyBanHang.Controllers
 {
@@ -40,7 +41,7 @@ namespace QuanLyBanHang.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var model = _productService.GetAll().Where(p => p.proStatus == Status.Available).Select(product => new ProductIndexViewModel
+            var model = _productService.GetAll().Select(product => new ProductIndexViewModel
             {
                 Id = product.proID,
                 proName = product.proName,
@@ -89,7 +90,6 @@ namespace QuanLyBanHang.Controllers
                 proUpdateDate = product.proUpdateDate,
                 proDescription = product.proDescription,
                 Producer = product.Producer,
-                Rate = product.Rate,
                 ImageUrl = product.ImageUrl,
                 proStatus = product.proStatus,
                 forGender = product.forGender
@@ -165,6 +165,31 @@ namespace QuanLyBanHang.Controllers
             return View(model);
         }
         [HttpGet]
+        public IActionResult SortedByPrice(string sortOrder)
+        {
+            var model = _productService.GetAll().Select(product => new ProductIndexViewModel
+            {
+                Id = product.proID,
+                proName = product.proName,
+                proSize = product.proSize,
+                proPrice = product.proPrice,
+                proUpdateDate = product.proUpdateDate,
+                Producer = product.Producer,
+                ImageUrl = product.ImageUrl,
+                proStatus = product.proStatus,
+                forGender = product.forGender,
+            }).ToList();
+            switch (sortOrder)
+            {
+                case "desc":
+                    return View(model.OrderByDescending(p => p.proPrice).ToList());
+                case "inc":
+                    return View(model.OrderBy(p => p.proPrice).ToList());
+            }
+            return View(model);
+            
+        }
+        [HttpGet]
         public IActionResult DetailOrder(int id)
         {
             var order = _orderService.GetById(id);
@@ -217,15 +242,23 @@ namespace QuanLyBanHang.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteOrder(OrderDeleteViewModel model)
+        public async Task<IActionResult> DeleteOrder(OrderDeleteViewModel model)
         {
             var order = _orderService.GetById(model.orderID);
+            var orderDetails = _orderDetailService.GetAll().Where(odt => odt.orderID == model.orderID).ToList();
+            foreach(var orderdt in orderDetails)
+            {
+                var product = _productService.GetById(orderdt.proID);
+                product.Quantity += orderdt.ordtsQuantity;
+                product.proStatus = Status.Available;
+                await _productService.UpdateAsSync(product);
+            }
             
             if (order == null)
             {
                 return NotFound();
             }
-            _orderService.DeleteById(model.orderID);
+            await _orderService.DeleteById(model.orderID);
 
             return RedirectToAction("Order");
         }

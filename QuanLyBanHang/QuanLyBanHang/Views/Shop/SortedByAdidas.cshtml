@@ -1,4 +1,5 @@
-﻿<div class="card">
+﻿@using QuanLyBanHang.Entity;
+<div class="card">
     <div class="card-body">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -13,7 +14,15 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Price</th>
+                            <th>
+                                Price
+                                <a type="button" class="btn btn-secondary" asp-action="SortedByPrice" asp-route-sortOrder="desc">
+                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                                </a>
+                                <a type="button" class="btn btn-secondary" asp-action="SortedByPrice" asp-route-sortOrder="inc">
+                                    <i class="fa-solid fa-arrow-down-short-wide"></i>
+                                </a>
+                            </th>
                             <th>Size</th>
                             <th>Brand</th>
                             <th>Update Date</th>
@@ -38,7 +47,14 @@
                                 <th>@item.proSize</th>
                                 <th>@item.Producer</th>
                                 <th>@item.proUpdateDate.ToShortDateString()</th>
-                                <th>@item.proStatus</th>
+                                @if(item.proStatus == Status.Available)
+                                {
+                                    <th class="text-success">@item.proStatus</th>
+                                }else{
+                                    <th class="text-danger">@item.proStatus</th>
+
+                                }
+                                
                                 <th>@item.forGender</th>
                                 <td>
                                     <img style="width:80px" src="@Url.Content(@item.ImageUrl)" />

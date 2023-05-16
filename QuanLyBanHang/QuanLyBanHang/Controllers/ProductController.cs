@@ -6,6 +6,7 @@ using QuanLyBanHang.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.Data.SqlClient;
 
 namespace QuanLyBanHang.Controllers
 {
@@ -31,9 +32,60 @@ namespace QuanLyBanHang.Controllers
                 proUpdateDate = product.proUpdateDate,
                 Producer = product.Producer,
                 ImageUrl = product.ImageUrl,
+                Quantity = product.Quantity,
                 proStatus = product.proStatus,
                 forGender = product.forGender,
             }).ToList();
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult SortedByPrice(string sortOrder)
+        {
+            var model = _productService.GetAll().Select(product => new ProductIndexViewModel
+            {
+                Id = product.proID,
+                proName = product.proName,
+                proSize = product.proSize,
+                proPrice = product.proPrice,
+                proUpdateDate = product.proUpdateDate,
+                Producer = product.Producer,
+                ImageUrl = product.ImageUrl,
+                Quantity = product.Quantity,
+                proStatus = product.proStatus,
+                forGender = product.forGender,
+            }).ToList();
+            switch (sortOrder)
+            {
+                case "desc":
+                    return View(model.OrderByDescending(p => p.proPrice).ToList());
+                case "inc":
+                    return View(model.OrderBy(p => p.proPrice).ToList());
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult SortedByQuantity(string sortOrder)
+        {
+            var model = _productService.GetAll().Select(product => new ProductIndexViewModel
+            {
+                Id = product.proID,
+                proName = product.proName,
+                proSize = product.proSize,
+                proPrice = product.proPrice,
+                proUpdateDate = product.proUpdateDate,
+                Producer = product.Producer,
+                ImageUrl = product.ImageUrl,
+                Quantity = product.Quantity,
+                proStatus = product.proStatus,
+                forGender = product.forGender,
+            }).ToList();
+            switch (sortOrder)
+            {
+                case "desc":
+                    return View(model.OrderByDescending(p => p.Quantity).ToList());
+                case "inc":
+                    return View(model.OrderBy(p => p.Quantity).ToList());
+            }
             return View(model);
         }
         [HttpGet]
@@ -54,7 +106,7 @@ namespace QuanLyBanHang.Controllers
                 proUpdateDate = product.proUpdateDate,
                 proDescription = product.proDescription,
                 Producer = product.Producer,
-                Rate = product.Rate,
+                Quantity = product.Quantity,
                 ImageUrl = product.ImageUrl,
                 proStatus = product.proStatus,
                 forGender = product.forGender
@@ -84,10 +136,14 @@ namespace QuanLyBanHang.Controllers
                     proUpdateDate = model.proUpdateDate,
                     proDescription = model.proDescription,
                     Producer = model.Producer,
-                    Rate = model.Rate,
-                    proStatus = model.proStatus,
+                    Quantity = model.Quantity,
+                    proStatus = Status.Available,
                     forGender = model.forGender
                 };
+                if(product.Quantity <= 0)
+                {
+                    product.proStatus = Status.Unavailable;
+                }
                 if (model.ImageUrl != null && model.ImageUrl.Length > 0)
                 {
                     var uploadDir = @"picture/products";
@@ -151,7 +207,7 @@ namespace QuanLyBanHang.Controllers
                 proUpdateDate = product.proUpdateDate,
                 proDescription = product.proDescription,
                 Producer = product.Producer,
-                Rate = product.Rate,
+                Quantity = product.Quantity,
                 proStatus = product.proStatus,
                 forGender = product.forGender
             };
@@ -173,7 +229,7 @@ namespace QuanLyBanHang.Controllers
                 product.proUpdateDate = model.proUpdateDate;
                 product.proDescription = model.proDescription;
                 product.Producer = model.Producer;
-                product.Rate = model.Rate;
+                product.Quantity = model.Quantity;
                 product.proStatus = model.proStatus;
                 product.forGender = model.forGender;
 

@@ -20,5 +20,6 @@ namespace QuanLyBanHang.Models.Product
         public string Producer { get; set; }
         public Status proStatus { get; set; }
         public Gender forGender { get; set; }
+        public long Quantity { get; set; }
     }
 }
